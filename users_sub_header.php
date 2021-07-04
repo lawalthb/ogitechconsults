@@ -2,7 +2,7 @@
   <div class="w3-bar-item w3-padding-24 w3-wide"><a href="index.php" style="color:white; ">OGITECH STORE</a></div>
   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 " onclick="w3_open()"><i class="fa fa-bars"></i></a>
 </header>
-
+<!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
@@ -42,7 +42,7 @@
 
       </sup></i></a>
       <i class="fa fa-search" onclick="document.getElementById('search_modal').style.display='block'" ></i>  &nbsp;&nbsp;&nbsp;
-      <?php
+       <?php
 
       if(@!isset($_COOKIE[firstname])) {
         @header('Location: index.php?error=failed');
@@ -51,10 +51,10 @@
         <i class="fa fa-user" onclick="document.getElementById('login_modal').style.display='block'" title="Login"></i>
     <?php
     } else {
-
-       echo  @$_COOKIE[firstname];
-       ?>
-
+      ?>
+      <i class="fas fa-user-edit" onclick="document.getElementById('user_edit_modal').style.display='block'" title="Edit-User"><?=ucwords(@$_COOKIE[firstname]);?></i>
+     
+       
        <i class="fa fa-power-off " onclick="location.href ='logout.php'" title="Logout"></i>
     <?php
     }

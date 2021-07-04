@@ -80,8 +80,6 @@ if(isset($_GET['register'])){
   window.history.replaceState(null, null, window.location.pathname);
   </script>";
 
-  
-
 }
 
 if(isset($_GET['forgot'])){

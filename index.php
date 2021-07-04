@@ -288,6 +288,8 @@ $num++;
 
 
 
+
+
 <!-- Search Modal -->
 <?php include 'modal_search.php';?>
 
@@ -295,8 +297,16 @@ $num++;
 <?php include 'modal_new_password.php';?>
 
 
+<!-- Edit user Modal -->
+<?php include 'modal_edit_user.php';?>
+
+
 <!-- Forgot Modal -->
 <?php include 'modal_forgot.php';?>
+
+
+
+
 <script>
 $(document).ready(function () {
     $(".itemname").click(function () {

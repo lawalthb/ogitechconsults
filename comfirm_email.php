@@ -46,11 +46,14 @@ function test_input($data) {
         // output data of each row
         while($row = mysqli_fetch_assoc($result)) {
             setcookie ("email",$_POST["email"],time()+ (10 * 365 * 24 * 60 * 60));
+            setcookie ("matric_no",$row["matric_no"],time()+ (10 * 365 * 24 * 60 * 60));
             setcookie ("firstname",$row["firstname"],time()+ (10 * 365 * 24 * 60 * 60));
             setcookie ("lastname",$row["lastname"],time()+ (10 * 365 * 24 * 60 * 60));
             setcookie ("department",$row["department"],time()+ (10 * 365 * 24 * 60 * 60));
             setcookie ("status",$row["status"],time()+ (10 * 365 * 24 * 60 * 60));
             setcookie ("user_id",$row["user_id"],time()+ (10 * 365 * 24 * 60 * 60));
+            setcookie ("gender",$row["gender"],time()+ (10 * 365 * 24 * 60 * 60));
+            setcookie ("level",$row["level"],time()+ (10 * 365 * 24 * 60 * 60));
             setcookie ("phone",$row["phone"],time()+ (10 * 365 * 24 * 60 * 60));
 
 
