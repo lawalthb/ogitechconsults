@@ -1,0 +1,107 @@
+[20-Mar-2021 05:50:58 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/flexplas/public_html/ogitechconsults.com/connection.php on line 8
+[20-Mar-2021 05:51:21 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/flexplas/public_html/ogitechconsults.com/connection.php on line 8
+[20-Mar-2021 05:52:08 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/flexplas/public_html/ogitechconsults.com/connection.php on line 8
+[20-Mar-2021 05:52:12 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/flexplas/public_html/ogitechconsults.com/connection.php on line 8
+[20-Mar-2021 05:52:30 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/flexplas/public_html/ogitechconsults.com/connection.php on line 8
+[20-Mar-2021 05:52:36 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/flexplas/public_html/ogitechconsults.com/connection.php on line 8
+[20-Mar-2021 05:52:38 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/flexplas/public_html/ogitechconsults.com/connection.php on line 8
+[20-Mar-2021 05:54:25 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 05:54:25 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 05:54:25 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 05:54:25 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 05:54:25 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 05:54:25 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 05:56:30 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 05:56:30 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 05:56:30 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 05:56:30 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 05:56:30 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 05:56:30 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 05:56:36 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 74
+[20-Mar-2021 05:56:40 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 74
+[20-Mar-2021 06:00:02 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:00:02 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:00:02 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:00:02 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:00:02 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:00:02 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:02:12 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:02:12 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:02:12 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:02:12 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:02:12 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:02:12 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:02:15 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:02:15 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:02:15 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:02:15 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:02:15 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 06:02:15 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 11:34:32 UTC] PHP Notice:  Undefined variable: last_id in /home/flexplas/public_html/ogitechconsults.com/register_action.php on line 51
+[20-Mar-2021 11:40:08 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 11:40:08 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[20-Mar-2021 15:50:07 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 74
+[21-Mar-2021 06:13:32 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 74
+[21-Mar-2021 06:15:16 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[21-Mar-2021 06:15:16 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[21-Mar-2021 06:15:16 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[21-Mar-2021 06:15:16 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[21-Mar-2021 06:15:16 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[21-Mar-2021 06:15:16 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[21-Mar-2021 06:15:16 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[21-Mar-2021 06:15:16 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[21-Mar-2021 09:05:57 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[21-Mar-2021 09:05:57 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[21-Mar-2021 09:05:57 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[21-Mar-2021 09:05:57 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[21-Mar-2021 09:05:57 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[21-Mar-2021 09:05:57 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[21-Mar-2021 09:05:57 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[21-Mar-2021 09:05:57 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:28:33 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:28:33 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:28:33 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:28:33 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:28:33 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:28:33 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:28:33 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:28:33 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:29:07 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:29:07 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:29:07 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:29:07 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:29:07 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:29:07 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:29:07 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 09:29:07 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 10:22:11 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 10:22:11 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 10:22:11 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 10:22:11 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 10:22:11 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 10:22:11 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 10:22:11 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 10:22:11 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 10:22:11 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[05-Apr-2021 10:22:11 UTC] PHP Notice:  Undefined index: payment_optn in /home/flexplas/public_html/ogitechconsults.com/order_history.php on line 98
+[25-Apr-2021 16:02:00 UTC] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/flexplas/public_html/ogitechconsults.com/connection.php on line 8
+[25-Apr-2021 16:07:20 UTC] PHP Warning:  mysqli_connect(): (42000/1044): Access denied for user 'flexplas_root'@'localhost' to database 'ogitechconsult_db' in /home/flexplas/public_html/ogitechconsults.com/connection.php on line 8
+[25-Apr-2021 16:08:01 UTC] PHP Warning:  mysqli_connect(): (42000/1044): Access denied for user 'flexplas_root'@'localhost' to database 'ogitechconsult_db' in /home/flexplas/public_html/ogitechconsults.com/connection.php on line 8
+[25-Apr-2021 16:10:07 UTC] PHP Warning:  mysqli_connect(): (42000/1044): Access denied for user 'flexplas_root'@'localhost' to database 'ogitechconsult_db' in /home/flexplas/public_html/ogitechconsults.com/connection.php on line 8
+[25-Apr-2021 16:10:30 UTC] PHP Warning:  mysqli_connect(): (42000/1044): Access denied for user 'flexplas_root'@'localhost' to database 'flexplas_ogitechconsult_db' in /home/flexplas/public_html/ogitechconsults.com/connection.php on line 8
+[25-Apr-2021 16:10:36 UTC] PHP Warning:  mysqli_connect(): (42000/1044): Access denied for user 'flexplas_root'@'localhost' to database 'flexplas_ogitechconsult_db' in /home/flexplas/public_html/ogitechconsults.com/connection.php on line 8
+[25-Apr-2021 16:26:57 UTC] PHP Notice:  Undefined variable: confirm_link in /home/flexplas/public_html/ogitechconsults.com/register_action.php on line 55
+[24-Jun-2021 04:15:00 UTC] PHP Notice:  Undefined index: message in /home/flexplas/public_html/ogitechconsults.com/send_contact.php on line 5
+[24-Jun-2021 04:15:01 UTC] PHP Notice:  Undefined index: item_id in /home/flexplas/public_html/ogitechconsults.com/order_action.php on line 8
+[24-Jun-2021 04:15:01 UTC] PHP Notice:  Undefined index: qty in /home/flexplas/public_html/ogitechconsults.com/order_action.php on line 9
+[24-Jun-2021 04:15:01 UTC] PHP Notice:  Undefined index: price in /home/flexplas/public_html/ogitechconsults.com/order_action.php on line 10
+[24-Jun-2021 04:15:01 UTC] PHP Notice:  Undefined index: total in /home/flexplas/public_html/ogitechconsults.com/order_action.php on line 11
+[24-Jun-2021 04:15:01 UTC] PHP Notice:  Undefined index: vendor_id in /home/flexplas/public_html/ogitechconsults.com/order_action.php on line 12
+[24-Jun-2021 04:15:01 UTC] PHP Notice:  Undefined index: user_id in /home/flexplas/public_html/ogitechconsults.com/order_action.php on line 13
+[24-Jun-2021 04:15:02 UTC] PHP Notice:  Undefined index: email in /home/flexplas/public_html/ogitechconsults.com/register_action.php on line 24
+[24-Jun-2021 04:15:02 UTC] PHP Notice:  Undefined index: password in /home/flexplas/public_html/ogitechconsults.com/register_action.php on line 25
+[24-Jun-2021 04:15:02 UTC] PHP Notice:  Undefined index: gender in /home/flexplas/public_html/ogitechconsults.com/register_action.php on line 28
+[24-Jun-2021 04:15:02 UTC] PHP Notice:  Undefined index: level in /home/flexplas/public_html/ogitechconsults.com/register_action.php on line 29
+[24-Jun-2021 04:15:02 UTC] PHP Notice:  Undefined index: department in /home/flexplas/public_html/ogitechconsults.com/register_action.php on line 31
+[24-Jun-2021 04:15:02 UTC] PHP Notice:  Undefined variable: confirm_link in /home/flexplas/public_html/ogitechconsults.com/register_action.php on line 55
+[01-Jul-2021 10:54:41 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/flexplas/public_html/ogitechconsults.com/order_refresh_page.php on line 49
