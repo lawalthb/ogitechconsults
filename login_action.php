@@ -38,7 +38,7 @@ if (mysqli_num_rows($result) > 0) {
     header('Location: index.php?msg=success');
   }
 } else {
-    header('Location: index.php?error=failed');
+    header('Location: index.php?login_fail=failed');
 }
 
 }

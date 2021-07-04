@@ -13,7 +13,7 @@
           </div>
           <div class="w3-half w3-container  ">
 
-              <input class="w3-input w3-border" type="text" placeholder= " Answer ?"  id="log_ans" required>
+              <input class="w3-input w3-border" type="text" autocomplete="off" placeholder= " Answer ?"  id="log_ans" required>
 
           </div>
           <br>

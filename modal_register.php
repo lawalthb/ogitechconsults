@@ -9,19 +9,19 @@
       <div class="w3-row">
 
           <div class="w3-half w3-container w3-margin-bottom" >
-              <input class="w3-input w3-border" type="text" name="firstname" placeholder="Enter First Name" required >
+              <input class="w3-input w3-border" type="text" name="firstname" autocomplete="off" placeholder="Enter First Name" required >
           </div>
           <div class="w3-half w3-container w3-margin-bottom">
-              <input class="w3-input w3-border" type="text" name="lastname" placeholder="Enter Last Name" required>
+              <input class="w3-input w3-border" type="text" name="lastname" autocomplete="off" placeholder="Enter Last Name" required>
           </div>
 
 
 
           <div class="w3-half w3-container w3-margin-bottom">
-              <input class="w3-input w3-border" type="text" name="matric_no" placeholder="Enter Matric Number"  >
+              <input class="w3-input w3-border" type="text" name="matric_no" autocomplete="off" placeholder="Enter Matric Number (Optional)"  >
           </div>
           <div class="w3-half w3-container w3-margin-bottom" >
-              <input class="w3-input w3-border" type="email"  name="email" id="email" placeholder="Enter E-mail" required >
+              <input class="w3-input w3-border" type="email"  name="email" autocomplete="off" id="email" placeholder="Enter E-mail" required >
           <span style="color:red" id="email_msg"></span>
           </div>
 
@@ -35,7 +35,7 @@
           </div>
 
           <div class="w3-half w3-container w3-margin-bottom">
-              <input class="w3-input w3-border" type="text" name="phone" placeholder="Enter Phone No." required>
+              <input class="w3-input w3-border" type="text" name="phone" autocomplete="off" placeholder="Enter Phone No." required>
           </div>
 
           <div class="w3-half w3-container w3-margin-bottom">

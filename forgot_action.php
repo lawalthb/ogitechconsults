@@ -42,6 +42,7 @@ function test_input($data) {
   $result3 = mysqli_query($conn, $sql3);
   
   if(mysqli_num_rows($result3) > 0){
+    $row = mysqli_fetch_assoc($result3);
     $email_token  = $row["email_token"];
     $confirm_link = "http://ogitechconsults.com/index.php?etoken=".$email_token."&email=".$email;
 

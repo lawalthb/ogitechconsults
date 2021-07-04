@@ -121,4 +121,12 @@ if(isset($_GET['login_now'])){
   </script>";
 
 }
+if(isset($_GET['login_fail'])){
+
+  echo "<script> alert('Login Error! you can click the confirmation link to login');
+  window.history.replaceState(null, null, window.location.pathname);
+  </script>";
+
+}
+
 ?>
