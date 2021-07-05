@@ -154,7 +154,7 @@
       $("#email_msg").html(xhr);
     }
 });
-      })
+      });
   });// close doc ready
 
 </script>

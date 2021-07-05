@@ -10,7 +10,7 @@
 
       <div class="w3-half w3-container w3-margin-bottom">
             Select Vendor:
-            <input list="names" name="vendor" class="w3-select w3-border">
+            <input list="names" name="vendor" id="names2" class="w3-select w3-border">
           <datalist id="names">
             
 
@@ -29,22 +29,13 @@
           </div>
 
           <div class="w3-half w3-container w3-margin-bottom">
-            Select Item:
-            <input list="names2" name="item" class="w3-select w3-border">
-          <datalist id="names2">
+            Select Vendor's Item:
+            <span id="vendor_item">
+          <select name="item"  class="w3-input w3-border" >
+            <option disable >You need to select vendor name first </option>
             
-
-              <?php
-            $sql2 = "SELECT * FROM `products_tb`";
-            $result2 = mysqli_query($conn, $sql2);
-            mysqli_num_rows($result2);
-            while($row2 = $result2->fetch_assoc()) {
-            echo "<option value='$row2[product_name] -$row2[product_id]'>";
-            }
-              ?>
-
-          </datalist>
-          </input>
+          </select> 
+          </span>
 
           </div>
           
@@ -54,7 +45,7 @@
 
           </div>
           <div class="w3-half w3-container w3-margin-bottom" >
-            Selling Rate:  <input class="w3-input w3-border" type="number"  name="sell_rate" value="0"  required >
+            Selling Rate:  <input class="w3-input w3-border" type="number"  id="sell_rate" name="sell_rate" value="0"  required >
           </div>
 
           <div class="w3-half w3-container w3-margin-bottom" >
@@ -131,3 +122,41 @@ window.location.href = "stock.php?msg=suc";
 
 
 ?>
+<script>
+  $(document).ready(function(){
+      //alert(2);
+  $("#names2").change(function(){
+        var names2 = $("#names2").val();
+        var vendor_id = names2.split("-");
+       // alert(names2);
+        $.ajax({
+    url: "ajax_load_vendor_items.php?vendor_id=" + vendor_id[1],
+    success: function(response) {
+      
+      $("#vendor_item").html(response);
+
+    },
+    error: function(xhr) {
+     
+      $("#vendor_item").html(xhr);
+    }
+});
+      });
+
+
+
+      $("#vendor_item").change(function(){
+       // var names2 = $("#names2").val();
+      //  var purchase_rate = $("#vendor_item").val();
+        //var sell_rate = $("#names2").val();
+        //alert($(".opt").attr("purchase_rate"));
+        $("#pur_rate").val($("#vendor_item option:selected").attr("purchase_rate"));
+        $("#sell_rate").val($("#vendor_item option:selected").attr("sell_rate"));
+
+      // $("#pur_rate").val($(".opt").attr("purchase_rate"));
+      // $("#sell_rate").val($(".opt").attr("sell_rate"));
+      });
+      
+
+  });
+</script>
