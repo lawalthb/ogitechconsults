@@ -43,7 +43,7 @@ if (mysqli_num_rows($result) > 0) {
     ?>
 <tr class="w3-light">
 <td><?=$sn?></td>
-        <td><?=$row['firstname']." ".$row['firstname'];?></td>
+        <td><?=$row['firstname']." ".$row['lastname'];?></td>
         <td><?=$row['matric_no'];?></td>
         <td><?=$row['email'];?></td>
         <td><?=$row['phone'];?></td>

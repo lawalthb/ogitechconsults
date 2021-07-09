@@ -52,6 +52,7 @@ if (mysqli_num_rows($result) > 0) {
         $result2 = mysqli_query($conn, $sql2);
         mysqli_num_rows($result2);
         $row2 = mysqli_fetch_assoc($result2);
+        $vendor_name =  $row2['name']; 
         echo $row2['title']." ".$row2['name'];
 
         ?></td>
@@ -60,16 +61,17 @@ if (mysqli_num_rows($result) > 0) {
         $result2 = mysqli_query($conn, $sql2);
         mysqli_num_rows($result2);
         $row2 = mysqli_fetch_assoc($result2);
+        $department_name = $row2['name'];
         echo $row2['name'];
 
         ?></td>
         <td>no sold</td>
         <td><?php $status = $row['status'];
         if($status == 1){ echo "Active" ; }else{ echo "Deactive";}  ?></td>
-        <td><a href="#"  class="vendor_edit" department="<?=$row['department'];?>" name="<?=$row['name'];?>" email="<?=$row['email'];?>" title="<?=$row['title'];?>" edit_id="<?=$row['vendor_id'];?>"> <i class="material-icons">edit</i></a> |
-        <a href="#" class="vendor_delete" department="<?=$row['department'];?>" name="<?=$row['name'];?>"  delete_id="<?=$row['vendor_id'];?>" ><i class="material-icons">delete_forever</i></a></td>
+        <td><a href="#"  class="product_edit" description="<?=$row['description'];?>"  vendor_name="<?=$vendor_name;?>"  department_name="<?=$department_name;?>" vendor_id="<?=$row['vendor_id'];?>"  department_id="<?=$row['department_id'];?>" name="<?=$row['product_name'];?>" sell_rate="<?=$row['sell_rate'];?>" purchase_rate="<?=$row['purchase_rate'];?>" edit_id="<?=$row['product_id'];?>"> <i class="material-icons">edit</i></a> |
+        <a href="#" class="product_delete" department="<?=$row['department'];?>" name="<?=$row['name'];?>"  delete_id="<?=$row['product_id'];?>" ><i class="material-icons">delete_forever</i></a></td>
       </tr>
-
+      
     <?php
     $sn++;
   }
@@ -108,6 +110,7 @@ if (mysqli_num_rows($result) > 0) {
 
 <!-- Search Modal -->
 <?php include '../modal_search.php';?>
+
 <!-- Search Modal -->
 <?php include 'modal_add_product.php';?>
 

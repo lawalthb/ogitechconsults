@@ -108,6 +108,44 @@ function register_login(){
   });
 
 
+  $(".product_edit").click(function(){
+    document.getElementById('edit_products_modal').style.display='block';
+
+     var edit_id= $(this).attr("edit_id");
+     var pdescription= $(this).attr("description");
+     var pvendor_id= $(this).attr("vendor_id");
+     var pvendor_name= $(this).attr("vendor_name");
+     var pdepartment= $(this).attr("department_name");
+     var pdepartment_id= $(this).attr("department_id");
+      var psell_rate= $(this).attr("sell_rate");
+      var ppurchase_rate= $(this).attr("purchase_rate");
+      var pname= $(this).attr("name");
+      //alert(pname);
+
+
+     
+     $("#edit_product_id").val(edit_id);
+     $("#edit_product_sell").val(psell_rate);
+     $("#edit_product_name").val(pname);
+     $("#edit_product_purchase").val(ppurchase_rate);
+     $("#edit_product_description").val(pdescription);
+     
+     
+     $("#department").val(pdepartment+"-"+pdepartment_id);
+     $("#vend2").val(pvendor_name+"-"+pvendor_id);
+     //$("#edit_product_title").val(3).prop;
+
+     $("#edit_product_title option:selected").removeAttr("selected");
+     $("#edit_product_title option[value='"+vtitle +"']").attr('selected', 'selected');
+     $("#department option:selected").removeAttr("selected");
+     $("#department option[value='"+vdepart+"']").attr('selected', 'selected');
+
+
+
+      return false;
+
+  });
+
   $(".vendor_delete").click(function(){
     document.getElementById('delete_vendors_modal').style.display='block';
 
@@ -119,6 +157,23 @@ function register_login(){
 
      $("#delete_vendor_id").val(delete_id);
      $("#delete_vendor_name").html(vname);
+
+
+      return false;
+
+  });
+
+  $(".product_delete").click(function(){
+    document.getElementById('delete_products_modal').style.display='block';
+
+     var delete_id= $(this).attr("delete_id");
+     var vname= $(this).attr("name");
+
+
+
+
+     $("#delete_product_id").val(delete_id);
+     $("#delete_product_name").html(vname);
 
 
       return false;
