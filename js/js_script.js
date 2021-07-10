@@ -202,15 +202,27 @@ function register_login(){
   $(".checkout").click(function(){
       $(this).prop("disabled",true);
      var order_no= $(this).attr("order_no");
-     $.get("checkout.php?order_id="+order_no, function(data, status){
-        //  alert("Data:" + data + "\nStatus: " + status);
-          alert( "Status: " + status);
-        //   $(this).attr("order_no")
-          $(this).hide();
+     var product_id= $(this).attr("product_id");
+    //  $.get("checkout.php?order_id="+order_no+"&product_id="+product_id, function(data, status){
+    //     //  alert("Data:" + data + "\nStatus: " + status);
+    //       alert( "Status: " + status);
+    //     //   $(this).attr("order_no")
+    //       $(this).hide();
 
-             //attr("order_no") = $(".checkout").html('Purchased');
-        });
-          $(this).html("Done");
+    //          //attr("order_no") = $(".checkout").html('Purchased');
+    //     });
+    //       $(this).html("Done");
+
+          $.ajax({
+            url: "checkout.php?order_id="+order_no+"&product_id="+product_id,
+            success: function(response) {
+                 //$(this).html(response);
+                 alert(response);
+            },
+            error: function(xhr) {
+                  $(this).html(xhr);
+            }
+          });
 
   });
 //to update buyers payment option

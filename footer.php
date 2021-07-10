@@ -76,7 +76,7 @@ if(isset($_GET['msg'])){
 
 if(isset($_GET['register'])){
 
-  echo "<script> alert('Registration Successful - Please Confirm you email');
+  echo "<script> alert('Registration Successful - Please Confirm your email');
   window.history.replaceState(null, null, window.location.pathname);
   </script>";
 

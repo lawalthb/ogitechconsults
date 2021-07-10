@@ -35,7 +35,7 @@
           </div>
 
           <div class="w3-half w3-container w3-margin-bottom">
-              <input class="w3-input w3-border" type="text" name="phone" autocomplete="off" placeholder="Enter Phone No." required>
+              <input class="w3-input w3-border" type="number" name="phone" autocomplete="off" placeholder="Enter Phone No." required>
           </div>
 
           <div class="w3-half w3-container w3-margin-bottom">
@@ -80,7 +80,7 @@
 
           <div class="w3-half w3-container w3-panel ">
               <span style="font-size:13px"> Please answer question to verify you are human <span id="cquestion"> <b id="qst1" style=""> <?php echo(rand(1,9)); ?></b> + <b id="qst2"> <?php echo(rand(1,9)); ?></b>   =
-              <input class="w3-input w3-border" type="text" placeholder= " Answer ?" id="reg_ans" required>
+              <input class="w3-input w3-border" type="number" placeholder= " Answer ?" id="reg_ans" required>
           </div>
           <div class="w3-half w3-container  ">
 
@@ -146,15 +146,15 @@
       $("#email").blur(function(){
         var email = $("#email").val();
         $.ajax({
-    url: "ajax_check_mail.php?email=" + email ,
-    success: function(response) {
-      $("#email_msg").html(response);
-    },
-    error: function(xhr) {
-      $("#email_msg").html(xhr);
-    }
-});
-      });
+                url: "ajax_check_mail.php?email=" + email ,
+                success: function(response) {
+                     $("#email_msg").html(response);
+                },
+                error: function(xhr) {
+                      $("#email_msg").html(xhr);
+                }
+        });
+      })
   });// close doc ready
 
 </script>

@@ -1,7 +1,7 @@
 <?php include '../connection.php';?>
 <div id="add_modal" class="w3-modal">
   <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
-    <div class="w3-container w3-white w3-center">
+    <div class="w3-container w3-white w3-center" id="body">
       <i onclick="document.getElementById('add_modal').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
       <h2 class="w3-wide">Add Stock</h2>
       <p>Update Stock</p>
@@ -56,7 +56,7 @@
           </div>
 
           <div class="w3-half w3-container w3-margin-bottom" >
-              Date: <input class="w3-input w3-border" type="date"  name="date" value="<?=date(Y-m-d)?>" >
+              Date: <input class="w3-input w3-border" type="date"  name="date" value="<?=date('Y-m-d')?>" >
           </div>
           <div class="w3-half w3-container w3-margin-bottom" >
               Comment: <input class="w3-input w3-border" type="text"  name="comment" value="No Comment" >
@@ -79,6 +79,9 @@
 
 
 if (isset($_POST["item"])) {
+  echo "<script>
+  document.getElementById('body').style.display = 'none';
+  </script>";
   $item = trim($_POST["item"]);
   $vendor = trim($_POST["vendor"]);
   $sell_rate = trim($_POST["sell_rate"]);
@@ -90,23 +93,23 @@ if (isset($_POST["item"])) {
   $total_amt = $_POST["total_amt"];
 
   
-  $item_e = explode('-',$item);
- $item_id = $item_e[1];
+ // $item_e = explode('-',$item);
+ // $item_id = $item_e[1];
 
  $vendor_e = explode('-',$vendor);
  $vendor_id = $vendor_e[1];
 
 
- $sql_pay ="INSERT INTO `payment_tb` (`payment_id`, `vendor_id`, `amount_in`, `amount_out`, `amount_balance`, `reg_date`, `cmment`,`date`) 
+   $sql_pay ="INSERT INTO `payment_tb` (`payment_id`, `vendor_id`, `amount_in`, `amount_out`, `amount_balance`, `reg_date`, `cmment`,`date`) 
  VALUES (NULL, '$vendor_id', '$total_amt', '0', '$total_amt', CURRENT_TIMESTAMP, '$comment', '$date')";
 
 if (mysqli_query($conn, $sql_pay)){
   $payment_id = mysqli_insert_id($conn);
 
-
 }
-   $sql = "INSERT INTO `stock_tb` (`stock_id`, `date`, `item_id`, `vendor_id`, `item_in`, `item_out`, `item_balance`, `payment_id`, `reg_date`, `status`)
-   VALUES (NULL, NOW(), '$item_id', '$vendor_id', '$qty', '0', '$qty', '$payment_id', CURRENT_TIMESTAMP, '1');";
+
+    $sql = "INSERT INTO `stock_tb` (`stock_id`, `date`, `item_id`, `vendor_id`, `item_in`, `item_out`, `item_balance`, `payment_id`, `reg_date`, `status`)
+   VALUES (NULL, NOW(), '$item', '$vendor_id', '$qty', '0', '$qty', '$payment_id', CURRENT_TIMESTAMP, '1')";
 
 if (mysqli_query($conn, $sql)){
 

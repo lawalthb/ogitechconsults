@@ -108,7 +108,7 @@ else{
 
     <tr class="w3-light">
     <td><?=$sn?></td>
-    <td><button class="w3-button w3-black w3-round checkout" order_no="<?=$row['order_no'];?>" title="Checkout <?=$row['order_no'];?>">Check Out</button>
+    <td><button class="w3-button w3-black w3-round checkout"  product_id="<?=$row['product_id'];?>" order_no="<?=$row['order_no'];?>" title="Checkout <?=$row['order_no'];?>">Check Out</button>
        </td>
   <td><?=$row['order_no'];?></td>
 
