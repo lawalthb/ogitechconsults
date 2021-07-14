@@ -387,6 +387,7 @@ $num++;
 
 <script>
 $(document).ready(function () {
+ 
     $(".itemname").click(function () {
         // alert(" or " + $(this).attr("title"));
          $("#cartadd").html($(this).attr("title"));

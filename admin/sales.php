@@ -52,6 +52,7 @@ By defualt is listing today records
             <th>Name</th>
             <th>Matric No</th>
             <th>Product Name</th>
+            <th>Level</th>
             <th>Quantity</th>
             <th>Rate ₦</th>
             <th>Total Amount ₦</th>
@@ -127,6 +128,7 @@ else{
 
 
             ?></td>
+            <td><?=$row2['level'];?></td>
             <td><?=$row['qty'];?></td>
             <td><?=$row['rate'];?></td>
             <td><?=$row['total_amount'];?></td>
@@ -161,6 +163,7 @@ else{
                 <th>Name</th>
                 <th>Matric No</th>
             <th>Product Name</th>
+            <th>Level</th>
             <th>Quantity</th>
             <th>Rate ₦</th>
             <th>₦ <?=@number_format($tot,2)?></th>

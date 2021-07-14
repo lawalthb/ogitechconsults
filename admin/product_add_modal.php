@@ -69,6 +69,16 @@ while($row2 = $result2->fetch_assoc()) {
   }
               ?>
           </select>
+
+          <select class="w3-select w3-border" name="level"  required>
+
+          <option value="ND1">ND 1</option>
+              <option value="ND2">ND 2</option>
+              <option value="HND1">HND 1</option>
+              <option value="HND2">HND 2</option>
+              <option value="ND3">ND 3</option>
+              <option value="HND3">HND 3</option>
+          </select>
           </div>
 
 
@@ -126,6 +136,7 @@ if (isset($_POST["pname"])) {
   $decs = trim($_POST["decs"]);
   $vendor = trim($_POST["vendor"]);
   $available_for = $_POST["available_for"];
+  $level = $_POST["level"];
 
 $chk="";
 foreach($available_for as $chk1)
@@ -133,9 +144,9 @@ foreach($available_for as $chk1)
       $chk .= $chk1.",";
    }
 
-  echo $sql = "INSERT INTO `products_tb` ( `product_name`, `unit`, `description`,  department_id, `status`, `reg_date`,`image`,
+  echo $sql = "INSERT INTO `products_tb` ( `product_name`, `unit`, `description`,  `department_id`,  `level`, `status`, `reg_date`,`image`,
   `vendor_id`, `sell_rate`, `purchase_rate`, `available_for`,`admin_id`)
-  VALUES ( '$pname', '$unit', '$decs',  '$department' , '1', CURRENT_TIMESTAMP,'images_01.jpg',
+  VALUES ( '$pname', '$unit', '$decs',  '$department' ,'$level' , '1', CURRENT_TIMESTAMP,'images_01.jpg',
   $vendor,'$sell_rate','$pur_rate' , '$chk', 1 )";
 
 if (mysqli_query($conn, $sql)){

@@ -27,6 +27,7 @@
         <th>Purchase Rate</th>
         <th>Vendor</th>
         <th>Department</th>
+        <th>Level</th>
         <th>No. Sold</th>
         <th>Status</th>
         <th>Action</th>
@@ -65,7 +66,8 @@ if (mysqli_num_rows($result) > 0) {
         echo $row2['name'];
 
         ?></td>
-        <td>no sold</td>
+        <td><?=$row['level'];?></td>
+       <td>no sold</td>
         <td><?php $status = $row['status'];
         if($status == 1){ echo "Active" ; }else{ echo "Deactive";}  ?></td>
         <td><a href="#"  class="product_edit" description="<?=$row['description'];?>"  vendor_name="<?=$vendor_name;?>"  department_name="<?=$department_name;?>" vendor_id="<?=$row['vendor_id'];?>"  department_id="<?=$row['department_id'];?>" name="<?=$row['product_name'];?>" sell_rate="<?=$row['sell_rate'];?>" purchase_rate="<?=$row['purchase_rate'];?>" edit_id="<?=$row['product_id'];?>"> <i class="material-icons">edit</i></a> |
