@@ -14,8 +14,28 @@
 
   <!-- Top header -->
   <header class="w3-container w3-xlarge">
+  <em class="w3-left" style="font-size: 15px;">Showing Items for <?php 
+   $dep =  @$_COOKIE[department];
+  if($dep != "") {
 
-    <p class="w3-right">
+     
+      $sql9 = "SELECT * FROM `departments_tb`  where `department_id` = $dep";
+      $result9 = mysqli_query($conn, $sql9);
+      mysqli_num_rows($result9);
+     $row9 = $result9->fetch_assoc();
+          echo $row9["name"];
+        
+
+    }else{ echo "All Departments"; } ?> / <?php 
+    $lev =  @$_COOKIE[level];
+   if($dep != "") {
+ 
+      
+           echo $lev ;
+         
+ 
+     }else{ echo "All Levels"; } ?> </em>
+    <em class="w3-right">
     <a href="order_history.php?sales_status=1">  <i class="fa fa-shopping-cart w3-margin-right"> <sup >
       <?php
 
@@ -52,12 +72,13 @@
     <?php
     } else {
       ?>
-      <i class="fas fa-user-edit" onclick="document.getElementById('user_edit_modal').style.display='block'" title="Edit-User"><?=ucwords(@$_COOKIE[firstname]);?></i>
+      <i class="fas fa-user-edit" onclick="document.getElementById('user_edit_modal').style.display='block'" title="Edit-User"><?=ucwords(@$_COOKIE[firstname]).'-'.(@$_COOKIE[level]);?></i>
      
        
        <i class="fa fa-power-off " onclick="location.href ='logout.php'" title="Logout"></i>
     <?php
     }
     ?>
-    </p>
+    </em>
+   
   </header>

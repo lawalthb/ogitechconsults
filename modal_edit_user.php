@@ -45,12 +45,12 @@
 
           <option  value="<?php  if(isset($_COOKIE['level'])){ echo $_COOKIE['level']; } ?>"  selected ><?php  if(isset($_COOKIE['level'])){ echo $_COOKIE['level']; } ?></option>
              
-              <option value="ND 1">ND 1</option>
-              <option value="ND 2">ND 2</option>
-              <option value="HND 1">HND 1</option>
-              <option value="HND 2">HND 2</option>
-              <option value="ND 3">ND 3</option>
-              <option value="HND 3">HND 3</option>
+              <option value="ND1">ND 1</option>
+              <option value="ND2">ND 2</option>
+              <option value="HND1">HND 1</option>
+              <option value="HND2">HND 2</option>
+              <option value="ND3">ND 3</option>
+              <option value="HND3">HND 3</option>
 
           </select>
           </div>
@@ -74,7 +74,7 @@
 
           <div class="w3-half w3-container w3-panel ">
               <span style="font-size:13px"> Please answer question to verify you are human <span id="editquestion"> <b id="editqst1" style=""><?php echo(rand(1,9)); ?></b>+<b id="editqst2"><?php echo(rand(1,9)); ?></b>=
-              <input class="w3-input w3-border" type="text" placeholder= " Answer ?" id="editans2" required>
+              <input class="w3-input w3-border" type="number" placeholder= " Answer ?" id="editans2" required>
           </div>
           <div class="w3-half w3-container  ">
 

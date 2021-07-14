@@ -8,7 +8,7 @@
 
   <div class="w3-padding-10 w3-large w3-text-grey" style="font-weight:bold">
     <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-      Department <i class="fa fa-caret-down"></i>
+      Categories <i class="fa fa-caret-down"></i>
     </a>
      <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
   <?php
@@ -28,7 +28,7 @@ while($row2 = $result2->fetch_assoc()) {
 
   <div class="w3-padding-10 w3-large w3-text-grey" style="font-weight:bold">
     <a onclick="myAccFunc2()" href="javascript:void(2)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-      Lecturer <i class="fa fa-caret-down"></i>
+      Vendors <i class="fa fa-caret-down"></i>
     </a>
      <div id="demoAcc2" class="w3-bar-block w3-hide w3-padding-large w3-medium">
   <?php
@@ -36,7 +36,8 @@ $sql2 = "SELECT * FROM `vendors_tb`  ORDER BY `name` ASC";
 $result2 = mysqli_query($conn, $sql2);
 mysqli_num_rows($result2);
 while($row2 = $result2->fetch_assoc()) {
-    echo '<a href="index.php?vendor='.$row2["vendor_id"].'" class="w3-bar-item w3-button">'.$row2["name"].'</a>';
+  //echo 
+     '<a href="index.php?vendor='.$row2["vendor_id"].'" class="w3-bar-item w3-button">'.$row2["name"].'</a>';
   }
   ?>
 </div>
@@ -45,7 +46,7 @@ while($row2 = $result2->fetch_assoc()) {
 </div>
 <div class="w3-padding-10 w3-large w3-text-grey" style="font-weight:bold">
   <a onclick="myAccFunc1()" href="javascript:void(1)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-    Faculty <i class="fa fa-caret-down"></i>
+    <!-- Faculty <i class="fa fa-caret-down"></i> -->
   </a>
    <div id="demoAcc1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
 <?php

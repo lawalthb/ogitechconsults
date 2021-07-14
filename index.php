@@ -10,8 +10,49 @@
 <?php include 'users_sub_header.php';?>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <h3> </h3>
+<style>
+  @media only screen and (max-device-width: 480px){
+ /* in mobile css commands */ 
+
+.navr2 {
+  text-align: center;
+  overflow: hidden;
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.navr2 a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navr2 a:hover {
+  background: white;
+  color: black;
+}
+
+.navr2 a.active {
+  background-color: white;
+  color: black;
+}
+
+.main {
+  padding: 16px;
+  margin-bottom: 30px;
+}
+
+}
+</style>
   <!-- Product grid -->
   <div class="w3-row w3-grayscale">
+
 <style>
 .item_image  {
   height: 300px;
@@ -34,6 +75,8 @@ function login_now(){
 
 </script>
 <?php
+$user_level = @$_COOKIE[level] ;
+$user_department = @$_COOKIE[department] ;
 if (isset($_GET['page_no']) && $_GET['page_no']!="") {
 	$page_no = $_GET['page_no'];
 	} else {
@@ -44,8 +87,13 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
       $previous_page = $page_no - 1;
       $next_page = $page_no + 1;
       $adjacents = "2"; 
-    
-      $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `products_tb`");
+      $result_count_sql = "SELECT COUNT(*) As total_records FROM `products_tb` " ;
+       if($user_level != ""){
+        $result_count_sql ="SELECT COUNT(*) As total_records FROM `products_tb` where  `level` like '$user_level' and `department_id` like '$user_department'  ";
+        
+         
+      }
+      $result_count = mysqli_query($conn,  $result_count_sql);
       $total_records = mysqli_fetch_array($result_count);
       $total_records = $total_records['total_records'];
         $total_no_of_pages = ceil($total_records / $total_records_per_page);
@@ -55,8 +103,12 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
 if(isset($_GET['search'])){
 $item_name =$_GET['search'];
 
-       $sql = "SELECT * FROM `products_tb`  where  `product_id` like '$item_name'  ORDER BY `product_id` DESC LIMIT $offset, $total_records_per_page ";
-
+       $sql = "SELECT * FROM `products_tb`  where  `product_id` like '$item_name'   ORDER BY `product_id` DESC LIMIT $offset, $total_records_per_page ";
+      
+       if($user_level != ""){
+        $sql = "SELECT * FROM `products_tb`  where  `product_id` like '$item_name' and 
+          `level` like '$user_level' and `department_id` like '$user_department'    ORDER BY `product_id` DESC LIMIT $offset, $total_records_per_page ";
+      }
 
 }elseif(isset($_GET['department'])){
 
@@ -67,13 +119,30 @@ $cookie_value = $item_name;
 
   //  @setcookie ("filter_department",90,time()+ (10 * 365 * 24 * 60 * 60));
   $sql = "SELECT * FROM `products_tb`  where  `department_id` = '$item_name'   ORDER BY `product_id` DESC LIMIT $offset, $total_records_per_page ";
-
+  
+  if($user_level != ""){
+    $sql = "SELECT * FROM `products_tb`  where  `department_id` = '$item_name' and 
+      `level` like '$user_level' and `department_id` like '$user_department'    ORDER BY `product_id` DESC LIMIT $offset, $total_records_per_page ";
+  }
 
 }elseif(isset($_GET['vendor'])){
   $item_name =$_GET['vendor'];
-  $sql = "SELECT * FROM `products_tb`  where  `vendor_id` = '$item_name'  ORDER BY `product_id` DESC LIMIT $offset, $total_records_per_page ";
+  $sql = "SELECT * FROM `products_tb`  where  `vendor_id` = '$item_name'   ORDER BY `product_id` DESC LIMIT $offset, $total_records_per_page ";
+  if($user_level != ""){
+    $sql = "SELECT * FROM `products_tb`  where  `vendor_id` = '$item_name'  and 
+      `level` like '$user_level' and `department_id` like '$user_department'    ORDER BY `product_id` DESC LIMIT $offset, $total_records_per_page ";
+  }
+
+
 }else{
-  $sql = "SELECT * FROM `products_tb` ORDER BY `product_id` DESC LIMIT $offset, $total_records_per_page ";
+   $sql = "SELECT * FROM `products_tb` ORDER BY `product_id` DESC LIMIT $offset, $total_records_per_page ";
+   
+if($user_level != ""){
+    $sql = "SELECT * FROM `products_tb` where  
+  `level` like '$user_level' and `department_id` like '$user_department' ORDER BY `product_id` DESC LIMIT $offset, $total_records_per_page ";
+}
+
+
 }
 
 
@@ -86,6 +155,7 @@ if (@mysqli_num_rows($result) > 0) {
 
      ?>
 <style>
+  
 .item_image<?=$num?>  {
   height: 300px;
   width: 180px;
@@ -109,7 +179,7 @@ $ved_id = $row["vendor_id"];
 $sql2 = "SELECT * FROM `vendors_tb` WHERE `vendor_id` = $ved_id ";
 $result2 = mysqli_query($conn, $sql2);
 $row2 = $result2->fetch_assoc();
-  $ved_name = $row2['name'];
+  //$ved_name = $row2['name'];
 ?>
           <div class="w3-display-middle w3-display-hover">
             <button class="w3-button w3-black itemname " title="<?php echo strtoupper($row["product_name"]); ?>" disc="<?php echo $row["description"] ?>"
@@ -120,7 +190,7 @@ vendor_id="<?php echo $row["vendor_id"] ?>"
                price="<?php echo $row["sell_rate"] ?>" onclick="document.getElementById('addcart').style.display='block';" >Add to cart <i class="fa fa-shopping-cart"></i></button>
           </div>
         </div>
-        <p><?php echo  ucfirst($row["product_name"]); ?>  [<?php echo   $ved_name ?>]
+        <p><?php echo  ucfirst($row["product_name"]); ?>  <?php echo   $ved_name ?>
           <br><b>₦<?php echo number_format($row["sell_rate"],2); ?></b>&nbsp;&nbsp;<i class="fa fa-hand-pointer-o" aria-hidden="true"></i></p>
       </div>
   </div>
@@ -222,6 +292,7 @@ $num++;
 </div>
 
 </div>
+
 <br />
 
   <!-- Footer -->
@@ -277,7 +348,14 @@ $num++;
     </div>
   </div>
 </div>
-
+<div class="navr2 w3-center" >
+ 
+  <a href="#top" >Top</a>
+  <a href="order_history.php?sales_status=1" class="active" >Cart</a>
+  <a href="#footer">Contact</a>
+  <a href="#" onclick="document.getElementById('search_modal').style.display='block'">Search</a>
+      
+</div>
 <!-- viewcart Modal -->
 <?php include 'modal_view_cart.php';?>
 <!-- Login Modal -->

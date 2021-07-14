@@ -58,6 +58,7 @@ if(@!isset($_COOKIE[admin_username])) {
   <?php } ?>
   </footer>
   <div class="w3-black w3-center w3-padding-24">© 2021 All Rights Reserved OGITECH Consult</div>
+  <br />
 
   <?php
   mysqli_close($conn);
