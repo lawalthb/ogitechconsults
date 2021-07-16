@@ -67,10 +67,12 @@ if(@!isset($_COOKIE[admin_username])) {
 <?php
 if(isset($_GET['msg'])){
 
-    echo "<script> alert('Successful');
+    echo "<script>
+    window.onload = function() {
+      myFunction();
+    };
     window.history.replaceState(null, null, window.location.pathname);
     </script>";
-
     
 
 }
@@ -127,5 +129,7 @@ if(isset($_GET['login_fail'])){
   </script>";
 
 }
+
+
 
 ?>

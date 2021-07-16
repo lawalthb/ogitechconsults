@@ -107,6 +107,9 @@ function register_login(){
 
   });
 
+  
+  
+
 
   $(".product_edit").click(function(){
     document.getElementById('edit_products_modal').style.display='block';
@@ -120,10 +123,12 @@ function register_login(){
       var psell_rate= $(this).attr("sell_rate");
       var ppurchase_rate= $(this).attr("purchase_rate");
       var pname= $(this).attr("name");
+      var plevel= $(this).attr("level");
+      var pvendor_email= $(this).attr("vendor_email");
       //alert(pname);
-
-
-     
+      
+      $("#edit_vend_email").val(pvendor_email);
+      $("#edit_level").val(plevel);
      $("#edit_product_id").val(edit_id);
      $("#edit_product_sell").val(psell_rate);
      $("#edit_product_name").val(pname);
@@ -289,3 +294,15 @@ $(".refund").click(function(){
       $(this).html("Done");
 
 });
+
+function myFunction() {
+  // Get the snackbar DIV
+  var x = document.getElementById("snackbar");
+
+  // Add the "show" class to DIV
+  x.className = "show";
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+} 
+

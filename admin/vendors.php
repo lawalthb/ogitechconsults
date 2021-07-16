@@ -13,7 +13,7 @@
            <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
   <!-- Product grid -->
-  <h2>Vendors/Lecturers</h2>
+  <h2>Vendors</h2>
   <div class="w3-container">
    <p><button class="w3-button w3-black w3-round w3-right" onclick="document.getElementById('add_vendors_modal').style.display='block'" title="Login">Add New</button></p><br><br>
 

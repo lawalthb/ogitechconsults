@@ -5,6 +5,8 @@
       <i onclick="document.getElementById('add_modal').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
       <h2 class="w3-wide">Add product</h2>
       <p>Create New product</p>
+      <div id="body">
+        
       <form action="product_add_modal.php" method="post"  >
       <div class="w3-row">
 
@@ -57,15 +59,15 @@ while($row2 = $result2->fetch_assoc()) {
           </div>
 
           <div class="w3-half w3-container w3-margin-bottom">
-          <select class="w3-select w3-border" name="vendor"  required>
+          <select class="w3-select w3-border" name="vendor" id="pvendor_email"  required>
 
-              <option value="" disabled selected>Select Vendor</option>
+              <option value="" disabled selected >Select Vendor</option>
               <?php
 $sql2 = "SELECT * FROM `vendors_tb`";
 $result2 = mysqli_query($conn, $sql2);
 mysqli_num_rows($result2);
 while($row2 = $result2->fetch_assoc()) {
-    echo "<option value='$row2[vendor_id]'>".$row2["title"]." ".$row2["name"]."</option>";
+    echo "<option value='$row2[vendor_id]' email='$row2[email]'>".$row2["title"]." ".$row2["name"]."</option>";
   }
               ?>
           </select>
@@ -79,14 +81,17 @@ while($row2 = $result2->fetch_assoc()) {
               <option value="ND3">ND 3</option>
               <option value="HND3">HND 3</option>
           </select>
+          
           </div>
 
 
-
+          
+              
+         
 
 
           <div class="w3-half w3-container w3-margin-bottom" >
-
+          
             <select class="w3-select w3-border" name="available_for[]" multiple >
 
               <option value="" disabled selected>Select Multiple Department [Hold Ctrl to select mult]</option>
@@ -102,9 +107,9 @@ while($row2 = $result2->fetch_assoc()) {
 
 
           </div>
-<!--  <div class="w3-half w3-container w3-margin-bottom w3-right " >
-              <input class="w3-input w3-border" type="file"  name="image" placeholder="Choose Image"  >
-          </div> -->
+ <div class="w3-half w3-container w3-margin-bottom w3-right " >
+              <input class="w3-input w3-border" type="text" id="pvendor_email_set" value="vendor@ogitechconsults.com"  name="vendor_email" placeholder="Vendor's Email"  >
+          </div>
 
 
 
@@ -116,7 +121,7 @@ while($row2 = $result2->fetch_assoc()) {
       <button type="submit" class="w3-button w3-padding-large w3-red w3-margin-bottom"
                onclick="document.getElementById('viewcart').style.display='none'">Submit</button>
      </form>
-
+</div>
     </div>
   </div>
 </div>
@@ -127,6 +132,9 @@ while($row2 = $result2->fetch_assoc()) {
 
 
 if (isset($_POST["pname"])) {
+  echo "<script>
+  document.getElementById('body').style.display = 'none';
+  </script>";
   $pname = trim($_POST["pname"]);
   $unit = trim($_POST["unit"]);
   $sell_rate = trim($_POST["sell_rate"]);
@@ -137,7 +145,8 @@ if (isset($_POST["pname"])) {
   $vendor = trim($_POST["vendor"]);
   $available_for = $_POST["available_for"];
   $level = $_POST["level"];
-
+  $vendor_email = $_POST["vendor_email"];
+  
 $chk="";
 foreach($available_for as $chk1)
    {
@@ -145,12 +154,29 @@ foreach($available_for as $chk1)
    }
 
   echo $sql = "INSERT INTO `products_tb` ( `product_name`, `unit`, `description`,  `department_id`,  `level`, `status`, `reg_date`,`image`,
-  `vendor_id`, `sell_rate`, `purchase_rate`, `available_for`,`admin_id`)
+  `vendor_id`, `sell_rate`, `purchase_rate`, `available_for`,`admin_id`, `vendor_email`)
   VALUES ( '$pname', '$unit', '$decs',  '$department' ,'$level' , '1', CURRENT_TIMESTAMP,'images_01.jpg',
-  $vendor,'$sell_rate','$pur_rate' , '$chk', 1 )";
+  $vendor,'$sell_rate','$pur_rate' , '$chk', 1, '$vendor_email' )";
 
 if (mysqli_query($conn, $sql)){
 
+   // send mail to vendor 
+   $last_id = mysqli_insert_id($conn);
+  
+  $product_link = "http://ogitechconsults.com/vendor/index.php?mail_c=".$vendor_email."&product_id=".$last_id;
+  $headers = "From: admin@ogitechconsults.com\r\n";
+  $headers .= "Reply-To: admin@ogitechconsults.com\r\n";
+  
+  $headers .= "MIME-Version: 1.0\r\n";
+  $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+   $msg = "Greeting from OGITECH CONSULTS\nBelow is the product link for $pname  \n ".$product_link ."\n 
+   Kindly click the link to have access and see the status of your product \n \n Thanks ";
+
+   // use wordwrap() if lines are longer than 70 characters
+   $msg = wordwrap($msg,70);
+
+   // send email
+   mail($vendor_email,"NEW PRODUCT LINK - OGITECH CONSULTS",$msg);
 ?>
 <script>
 window.location.href = "products.php?msg=suc";
@@ -163,3 +189,17 @@ window.location.href = "products.php?msg=suc";
 
 
 ?>
+
+<script>
+$(document).ready(function(){
+$("#pvendor_email").change(function(){
+       
+        $("#pvendor_email_set").val($("#pvendor_email option:selected").attr("email"));
+       
+
+      
+      });
+
+    });
+
+    </script>

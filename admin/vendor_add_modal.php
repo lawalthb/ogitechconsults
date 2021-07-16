@@ -25,7 +25,7 @@
           
           
           <div class="w3-half w3-container w3-margin-bottom" >
-              <input class="w3-input w3-border" type="email"  name="email" placeholder="Enter E-mail" required >
+              <input class="w3-input w3-border" type="email" id="pvendor_email_set" name="email" placeholder="Enter E-mail" required >
           </div>
 
           
@@ -96,3 +96,4 @@ if (mysqli_query($conn, $sql)){
 
 
 ?>
+

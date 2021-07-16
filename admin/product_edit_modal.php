@@ -10,6 +10,7 @@
       
     
 <p id="edit_response"></p>
+<div id="body">
       <form action="product_edit_modal.php" method="post" >
       <div class="w3-row">
       
@@ -46,6 +47,18 @@
           <div class="w3-half w3-container w3-margin-bottom" >
              
               <textarea class="w3-input w3-border" name="description" id="edit_product_description"></textarea>
+
+              <input list="level" id="edit_level" name="level"  class="w3-select w3-border" require>
+             
+              <datalist id="level"> 
+              <option value="ND1">
+              
+              <option value="ND2">
+              <option value="HND1">
+              <option value="HND2">
+              <option value="ND3">
+              <option value="HND3">
+              </datalist>
           </div>
 
           
@@ -85,13 +98,15 @@
           
           </div>
           
- 
+          <div class="w3-half w3-container w3-margin-bottom w3-right " >
+              <input class="w3-input w3-border" type="text" id="edit_vend_email"   name="vendor_email" placeholder="Vendor's Email"  >
+          </div>
       </div> 
       <br />
       <button type="submit" class="w3-button w3-padding-large w3-red w3-margin-bottom"
             >Submit</button>
      </form>
-
+          </div>
     </div>
   </div>
 </div>
@@ -106,6 +121,9 @@ $title = "";
 $email = "";
 
 if (isset($_POST["name"])) {
+  echo "<script>
+  document.getElementById('body').style.display = 'none';
+  </script>";
    $name = trim($_POST["name"]);
   $purchase_rate = trim($_POST["purchase_rate"]);
   
@@ -114,6 +132,9 @@ if (isset($_POST["name"])) {
   $department = explode("-",$department);
   $department_id =  $department[1];
 
+  $level = trim($_POST["level"]);
+  $vendor_email = trim($_POST["vendor_email"]);
+  
   $product_id = trim($_POST["product_id"]);
   $status = trim($_POST["status"]);
   $sell_rate = trim($_POST["sell_rate"]);
@@ -122,15 +143,40 @@ if (isset($_POST["name"])) {
   $vendor = explode("-",$vendor);
   $vendor_id =  $vendor[1];
   
+  
    $sql = "UPDATE `products_tb` SET `product_name` = '$name', `description` = '$description', `vendor_id` = '$vendor_id',
     `department_id` = '$department_id', `sell_rate` = '$sell_rate',
-   `purchase_rate` = '$purchase_rate', `status` = '$status' WHERE `products_tb`.`product_id` = $product_id;";
+   `purchase_rate` = '$purchase_rate', `status` = '$status', `level` = '$level' , `vendor_email` = '$vendor_email' WHERE `products_tb`.`product_id` = $product_id;";
 
 if (mysqli_query($conn, $sql)){ 
    
+// send mail to vendor 
+//$last_id = mysqli_insert_id($conn);
+  
+$product_link = "http://ogitechconsults.com/vendor/index.php?mail_c=".$vendor_email."&product_id=".$product_id;
+$headers = "From: admin@ogitechconsults.com\r\n";
+    $headers .= "Reply-To: admin@ogitechconsults.com\r\n";
+    
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-   header('Location: products.php?msg=suc');
-  exit;
+ $msg = "Greeting from OGITECH CONSULTS\nBelow is the product link for $name  \n ".$product_link ."\n 
+ Kindly click the link to have access and see the status of your product \n \n Thanks ";
+
+ // use wordwrap() if lines are longer than 70 characters
+ $msg = wordwrap($msg,70);
+
+ // send email
+ mail($vendor_email,"NEW PRODUCT LINK - OGITECH CONSULTS",$msg,$headers);
+
+
+  ?>
+  <script>
+  window.location.href = "products.php?msg=suc";
+
+  </script>
+    <?php
+  
  
    
 }
