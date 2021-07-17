@@ -7,6 +7,9 @@ if (isset($_GET["order_id"])) {
 
       $order_id = trim($_GET["order_id"]);
       $product_id = trim($_GET["product_id"]);
+      //get item name
+      $sql5 = "SELECT *  FROM `products_tb` WHERE product_id = $product_id";
+      $result5 = mysqli_query($conn, $sql5); @$row5 = mysqli_fetch_assoc($result5); $product_name =  $row5['product_name'];
          // get all stock in
        $sql3 = "SELECT sum(item_in) as itemIN  FROM `stock_tb` WHERE item_id = $product_id";
       $result3 = mysqli_query($conn, $sql3); @$row3 = mysqli_fetch_assoc($result3); $row3['itemIN'];
@@ -25,6 +28,7 @@ if (isset($_GET["order_id"])) {
             mysqli_num_rows($result2);
             $row2 = mysqli_fetch_assoc($result2);
             $order_no = $row2['order_no'];
+            $mat_no = $row2['mat_no'];
             $product_id = $row2['product_id'];
             $vendor_id = $row2['vendor_id'];
             $user_id = $row2['user_id'];
@@ -38,12 +42,29 @@ if (isset($_GET["order_id"])) {
             ( '$order_no', '$product_id', '$vendor_id', '$user_id', '$rate', '$qty', '$total_amount', '$payment_optn', NOW(), CURRENT_TIMESTAMP, '2', 'Thanks fo your patronage', '$checkout_by')";
            
             if( mysqli_query($conn, $sql3)){
-                $sql4 ="INSERT INTO `stock_tb` (`stock_id`, `date`, `item_id`, `vendor_id`, `user_type`, `item_in`, 
+                $sql4 ="INSERT INTO `stock_tb` (`stock_id`, `date`, `user_id`, `mat_no`, `item_id`, `vendor_id`, `user_type`, `item_in`, 
                `item_out`, `item_balance`, `payment_id`, `reg_date`, `status`)
-               VALUES (NULL, NOW(), '$product_id', '$user_id', '2', '0', '$qty', '4', '0', CURRENT_TIMESTAMP, '1')";
+               VALUES (NULL, NOW(), '$user_id', '$mat_no', '$product_id', '$vendor_id', '2', '0', '$qty', '4', '0', CURRENT_TIMESTAMP, '1')";
                
                if(mysqli_query($conn, $sql4)){
                   echo  'successfully';
+                  $headers = "From: admin@ogitechconsults.com\r\n";
+                  $headers .= "Reply-To: admin@ogitechconsults.com\r\n";
+                  
+                  $headers .= "MIME-Version: 1.0\r\n";
+                  $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+              
+                 // email  message
+                 $msg = "Dear ".ucwords($_COOKIE['firstname'])." ".ucwords($_COOKIE['lastname'])."\n Thank you for your patronage\n Your Order No is: $order_no \n Item contain is: $product_name\n Item Quantity:$qty \n Item Rate: $rate\n Item Amount: $total_amount \n Date: ".date('d-m-y')."\n Thanks ";
+              
+                 // use wordwrap() if lines are longer than 70 characters
+                 $msg = wordwrap($msg,70);
+              
+                 // send email
+                 mail($email,"SALES RECEIPT - OGITECH CONSULTS",$msg);
+                 
+
+
                }
             }
 

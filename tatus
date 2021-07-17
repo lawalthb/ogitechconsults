@@ -1,0 +1,59 @@
+[33mcommit 6f752a574dffd80f021035c262a852c94d6b388f[m[33m ([m[1;36mHEAD -> [m[1;32muser2level[m[33m)[m
+Author: Lawal Victor <lawalthb@gmail.com>
+Date:   Fri Jul 16 15:35:46 2021 +0100
+
+    level and vendor product done
+
+[33mcommit f3198575320cc81bbaf07f52a603540ecf7812fd[m
+Author: Lawal Victor <lawalthb@gmail.com>
+Date:   Wed Jul 14 03:43:52 2021 +0100
+
+    level binding added to admin
+
+[33mcommit 07d564148ae376040833b42d22b6e8669e2ec12f[m
+Author: Lawal Victor <lawalthb@gmail.com>
+Date:   Wed Jul 14 02:55:24 2021 +0100
+
+    user side bound to level
+
+[33mcommit 776794562398f9260d5bc2e7ea702ee18edf3be7[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Lawal Victor <lawalthb@gmail.com>
+Date:   Sat Jul 10 21:27:40 2021 +0100
+
+    can not checkout zero item
+
+[33mcommit c68cbcee85a21952e3406f3a74225347f5757194[m
+Author: Lawal Victor <lawalthb@gmail.com>
+Date:   Fri Jul 9 15:48:05 2021 +0100
+
+    done with admin- product crud
+
+[33mcommit b8e5cbea8b92bcfc0b8afc67054a585a1dbd4482[m
+Author: Lawal Victor <lawalthb@gmail.com>
+Date:   Mon Jul 5 16:37:45 2021 +0100
+
+    done with ajax to load item when vendor is selected
+
+[33mcommit 189ebda921e624d277680eaa26cc38dd387ca88b[m
+Author: Lawal Victor <lawalthb@gmail.com>
+Date:   Mon Jul 5 16:36:36 2021 +0100
+
+    done with ajax to load item when vendor is selected
+
+[33mcommit 78d08f3bd1951083a945dc8c7ed7bf484f12c886[m
+Author: Lawal Victor <lawalthb@gmail.com>
+Date:   Sun Jul 4 23:02:33 2021 +0100
+
+    edit user done
+
+[33mcommit 81c444b6cd0cc4ca904ba6d7f18106c1f01efd30[m
+Author: Lawal Victor <lawalthb@gmail.com>
+Date:   Sun Jul 4 14:49:08 2021 +0100
+
+    after user registration tested online
+
+[33mcommit c6ec08c13dec7d3305df2b3318f96b740e13a0a8[m
+Author: Lawal Victor <lawalthb@gmail.com>
+Date:   Sun Jul 4 13:56:33 2021 +0100
+
+    forgot password done all user side completed!

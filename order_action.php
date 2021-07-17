@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $total = test_input($_POST["total"]);
   $vendor_id = test_input($_POST["vendor_id"]);
   $user_id = test_input($_POST["user_id"]);
+  $mat_no = $_COOKIE["matric_no"];
 
 //  $date = date("Y-m-d");
 
@@ -24,8 +25,8 @@ function test_input($data) {
     return $data;
   }
 
-  $sql = "INSERT INTO `order_tb` (`order_id`, `order_no`, `product_id`, `vendor_id`, `user_id`, `rate`, `qty`, `total_amount`, `date`, `dare_reg`, `order_status`, `sales_status`, `remark`) VALUES
-   (NULL, '', '$item_id', '$vendor_id', '$user_id', '$price', '$qty', '$total', NOW(), CURRENT_TIMESTAMP, '1', '1', 'No comment');";
+  $sql = "INSERT INTO `order_tb` (`order_id`, `order_no`, `product_id`, `vendor_id`, `user_id`, `mat_no`, `rate`, `qty`, `total_amount`, `date`, `dare_reg`, `order_status`, `sales_status`, `remark`) VALUES
+   (NULL, '', '$item_id', '$vendor_id', '$user_id', '$price', '$mat_no', '$qty', '$total', NOW(), CURRENT_TIMESTAMP, '1', '1', 'No comment');";
 
 if (mysqli_query($conn, $sql)){
     $last_id = mysqli_insert_id($conn);
