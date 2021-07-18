@@ -70,8 +70,8 @@ if (mysqli_query($conn, $sql)){
 
    // email  message
    $msg = "Welcome to OGITECH CONSULTS\nBelow is your comfirmation link \n ".$confirm_link ."\n to continue using our service \n \n Thanks ";
-   $headers = "From: admin@ogitechconsults.com\r\n";
-   $headers .= "Reply-To: admin@ogitechconsults.com\r\n";
+   $headers = "From: consults@ogitechconsults.com\r\n";
+   $headers .= "Reply-To: consults@ogitechconsults.com\r\n";
    
    $headers .= "MIME-Version: 1.0\r\n";
    $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
@@ -79,7 +79,7 @@ if (mysqli_query($conn, $sql)){
    $msg = wordwrap($msg,70);
 
    // send email
-   mail($email,"REGISTRATION - OGITECH CONSULTS",$msg);
+   mail($email,"REGISTRATION - OGITECH CONSULTS",$msg,$headers);
 
    ?>
    <script>

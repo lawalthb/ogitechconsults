@@ -152,16 +152,15 @@ if (mysqli_query($conn, $sql)){
    
 // send mail to vendor 
 //$last_id = mysqli_insert_id($conn);
-  
+$button = "<button><a href=http://ogitechconsults.com/vendor/index.php?vendor_mail=".$vendor_email."&product_id=".$last_id." >View Stock Flow </a></button>";
 $product_link = "http://ogitechconsults.com/vendor/index.php?mail_c=".$vendor_email."&product_id=".$product_id;
-$headers = "From: admin@ogitechconsults.com\r\n";
-    $headers .= "Reply-To: admin@ogitechconsults.com\r\n";
+$headers = "From: consults@ogitechconsults.com\r\n";
+    $headers .= "Reply-To: consults@ogitechconsults.com\r\n";
     
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
- $msg = "Greeting from OGITECH CONSULTS\nBelow is the product link for $name  \n ".$product_link ."\n 
- Kindly click the link to have access and see the status of your product \n \n Thanks ";
+ $msg = "Greeting from OGITECH CONSULTS<br  >Below is the product link for $name  <br  > ".$button."<br /> ".$product_link ."<br  > Kindly click the link to have access and see the status of your product <br  > <br  > Thanks ";
 
  // use wordwrap() if lines are longer than 70 characters
  $msg = wordwrap($msg,70);

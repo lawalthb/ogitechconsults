@@ -208,6 +208,7 @@ function register_login(){
       $(this).prop("disabled",true);
      var order_no= $(this).attr("order_no");
      var product_id= $(this).attr("product_id");
+     var user_id= $(this).attr("user_id");
     //  $.get("checkout.php?order_id="+order_no+"&product_id="+product_id, function(data, status){
     //     //  alert("Data:" + data + "\nStatus: " + status);
     //       alert( "Status: " + status);
@@ -219,7 +220,7 @@ function register_login(){
     //       $(this).html("Done");
 
           $.ajax({
-            url: "checkout.php?order_id="+order_no+"&product_id="+product_id,
+            url: "checkout.php?order_id="+order_no+"&product_id="+product_id+"&user_id="+user_id,
             success: function(response) {
                  //$(this).html(response);
                  alert(response);

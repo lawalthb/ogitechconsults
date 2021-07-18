@@ -7,9 +7,14 @@ if (isset($_GET["order_id"])) {
 
       $order_id = trim($_GET["order_id"]);
       $product_id = trim($_GET["product_id"]);
+      $user_id = trim($_GET["user_id"]);
       //get item name
       $sql5 = "SELECT *  FROM `products_tb` WHERE product_id = $product_id";
       $result5 = mysqli_query($conn, $sql5); @$row5 = mysqli_fetch_assoc($result5); $product_name =  $row5['product_name'];
+
+       //get user details
+       $sql7 = "SELECT *  FROM `users_tb` WHERE `user_id` = $user_id";
+       $result7 = mysqli_query($conn, $sql7); @$row7 = mysqli_fetch_assoc($result7); $firstname =  $row7['firstname']; $lastname =  $row7['lastname']; $email =  $row7['email'];
          // get all stock in
        $sql3 = "SELECT sum(item_in) as itemIN  FROM `stock_tb` WHERE item_id = $product_id";
       $result3 = mysqli_query($conn, $sql3); @$row3 = mysqli_fetch_assoc($result3); $row3['itemIN'];
@@ -47,23 +52,26 @@ if (isset($_GET["order_id"])) {
                VALUES (NULL, NOW(), '$user_id', '$mat_no', '$product_id', '$vendor_id', '2', '0', '$qty', '4', '0', CURRENT_TIMESTAMP, '1')";
                
                if(mysqli_query($conn, $sql4)){
-                  echo  'successfully';
-                  $headers = "From: admin@ogitechconsults.com\r\n";
-                  $headers .= "Reply-To: admin@ogitechconsults.com\r\n";
+                
+                  $headers = "From: consults@ogitechconsults.com\r\n";
+                  $headers .= "Reply-To: consults@ogitechconsults.com\r\n";
                   
                   $headers .= "MIME-Version: 1.0\r\n";
                   $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
               
                  // email  message
-                 $msg = "Dear ".ucwords($_COOKIE['firstname'])." ".ucwords($_COOKIE['lastname'])."\n Thank you for your patronage\n Your Order No is: $order_no \n Item contain is: $product_name\n Item Quantity:$qty \n Item Rate: $rate\n Item Amount: $total_amount \n Date: ".date('d-m-y')."\n Thanks ";
+                  $msg = "Dear ".ucwords($firstname)." ".ucwords($lastname)."<br> Thank you for your patronage<br> Your Order No is: ".$order_no."<br> Item contain is: ".$product_name." <br> Item Quantity: ".$qty."<br> Item Rate:  ".$rate."<br> Item Amount:  ".$total_amount."<br> Date: ".date("F j, Y, g:i a")."  <br><br> Thanks ";
               
                  // use wordwrap() if lines are longer than 70 characters
                  $msg = wordwrap($msg,70);
               
                  // send email
-                 mail($email,"SALES RECEIPT - OGITECH CONSULTS",$msg);
+                mail($email,"SALES RECEIPT - OGITECH CONSULTS",$msg,$headers);
+                
+                  echo  'successfully';
+               
                  
-
+                  
 
                }
             }

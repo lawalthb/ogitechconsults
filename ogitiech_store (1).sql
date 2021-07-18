@@ -45,7 +45,7 @@ CREATE TABLE `admins_tb` (
 
 INSERT INTO `admins_tb` (`admin_id`, `firstname`, `lastname`, `email`, `password`, `username`, `admin_type`, `status`, `reg_date`) VALUES
 (1, 'lawal', 'toheeb', 'lawalthb@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'lawal', 'admin', 1, '2021-01-24 08:26:14'),
-(2, 'admin', 'admin2', 'admin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-03-20 22:12:51', '1', 1, '2021-03-20 21:12:51');
+(2, 'admin', 'admin2', 'consults@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-03-20 22:12:51', '1', 1, '2021-03-20 21:12:51');
 
 -- --------------------------------------------------------
 

@@ -46,8 +46,8 @@ function test_input($data) {
     $email_token  = $row["email_token"];
     $confirm_link = "http://ogitechconsults.com/index.php?etoken=".$email_token."&email=".$email;
 
-    $headers = "From: admin@ogitechconsults.com\r\n";
-    $headers .= "Reply-To: admin@ogitechconsults.com\r\n";
+    $headers = "From: consults@ogitechconsults.com\r\n";
+    $headers .= "Reply-To: consults@ogitechconsults.com\r\n";
     
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
@@ -59,7 +59,7 @@ function test_input($data) {
    $msg = wordwrap($msg,70);
 
    // send email
-   mail($email,"RESET PASSWORD - OGITECH CONSULTS",$msg);
+   mail($email,"RESET PASSWORD - OGITECH CONSULTS",$msg,$headers);
 
    ?>
    <script>

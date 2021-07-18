@@ -62,6 +62,7 @@ while($row2 = $result2->fetch_assoc()) {
 
 </div><br /><br /><br />
   <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
+  <a href="index.php" class="w3-bar-item w3-button w3-padding"> Home</a>
   <a href="order_history.php?sales_status=1" class="w3-bar-item w3-button w3-padding"> My Orders</a>
   <?php
 

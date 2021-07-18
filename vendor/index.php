@@ -33,7 +33,7 @@ setcookie('vendor_mail', $vendor_mail, time()+((86400*30)*12));
               <script src=" https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
               <?php
                 $sql2 = "SELECT * FROM `products_tb` 
-               WHERE `product_id` =1";
+               WHERE `product_id` =$_GET[item_id];";
               //  $_GET[item_id] ";
                  
             $result2 = mysqli_query($conn, $sql2);
@@ -49,6 +49,7 @@ setcookie('vendor_mail', $vendor_mail, time()+((86400*30)*12));
           <th>SN</th>
           
             <th>Date</th>
+            <th>Matric No.</th>
             <th>Qty In</th>
             <th>Qty Out</th>
             <th>Qty Balance</th>
@@ -90,6 +91,7 @@ if (mysqli_num_rows($cresult) > 0) {
 
  
   <td><?php  echo $row['date'];?></td>
+  <td><?php  echo $row['mat_no'];?></td>
   <td><?php  echo $row['item_in'];?></td>
   
   <td><?php  echo $row['item_out'];
@@ -119,7 +121,8 @@ $runing_balance =$runing_balance- $qty_balance
           <tr class="w3-light-grey">
           <th>SN</th>
          
-            <th>Date</th>
+            <th>Date</th>  
+            <th>Matric No.</th>
             <th>Qty In</th>
             <th>Qty Out</th>
             <th>Qty Balance</th>

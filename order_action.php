@@ -26,7 +26,7 @@ function test_input($data) {
   }
 
   $sql = "INSERT INTO `order_tb` (`order_id`, `order_no`, `product_id`, `vendor_id`, `user_id`, `mat_no`, `rate`, `qty`, `total_amount`, `date`, `dare_reg`, `order_status`, `sales_status`, `remark`) VALUES
-   (NULL, '', '$item_id', '$vendor_id', '$user_id', '$price', '$mat_no', '$qty', '$total', NOW(), CURRENT_TIMESTAMP, '1', '1', 'No comment');";
+   (NULL, '', '$item_id', '$vendor_id', '$user_id',  '$mat_no', '$price', '$qty', '$total', NOW(), CURRENT_TIMESTAMP, '1', '1', 'No comment');";
 
 if (mysqli_query($conn, $sql)){
     $last_id = mysqli_insert_id($conn);
