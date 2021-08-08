@@ -199,7 +199,8 @@ else{
 
     </div>
 
-
+<!-- Edit user Modal -->
+<?php include 'admin_edit_modal.php';?>
 <!-- viewcart Modal -->
 <?php include '../modal_view_cart.php';?>
 

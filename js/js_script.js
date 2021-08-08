@@ -65,6 +65,68 @@ function register_login(){
       return false;
 
   });
+  
+  $(".edit_subadmin").click(function(){
+    document.getElementById('edit_subadmin_modal').style.display='block';
+
+    var edit_id= $(this).attr("edit_id");
+     var firstname= $(this).attr("firstname");
+     var vemail= $(this).attr("email");
+     var username= $(this).attr("username");
+      var level= $(this).attr("level");
+     var lastname= $(this).attr("lastname");
+   
+
+
+     $("#edit_user_uname2").text(firstname);
+     $("#edit_user_firstname").val(firstname);
+    
+     $("#edit_user_lastname").val(lastname);
+   
+     $("#edit_admin_id").val(edit_id);
+     
+     $("#edit_user_username").val(username);
+    
+
+      return false;
+
+  });
+// end sub admi
+
+  $(".edit_user").click(function(){
+    document.getElementById('edit_user_modal').style.display='block';
+
+    var edit_id= $(this).attr("edit_id");
+     var firstname= $(this).attr("firstname");
+     var vemail= $(this).attr("email");
+     var vmatric_no= $(this).attr("matric_no");
+      var level= $(this).attr("level");
+     var lastname= $(this).attr("lastname");
+    var vdepart= $(this).attr("department");
+    var dept_name= $(this).attr("dept_name");
+
+
+     $("#edit_user_uname2").text(firstname);
+     $("#edit_user_firstname").val(firstname);
+    
+     $("#edit_user_lastname").val(lastname);
+     $("#edit_user_level").val(level);
+     $("#edit_user_id").val(edit_id);
+     $("#department").val(dept_name+'-'+vdepart);
+    
+     
+     //$("#edit_vendor_title").val(3).prop;
+     $("#edit_user_matric").val(vmatric_no);
+     $("#edit_vendor_title option:selected").removeAttr("selected");
+     $("#edit_vendor_title option[value='"+vtitle +"']").attr('selected', 'selected');
+     $("#department option:selected").removeAttr("selected");
+     $("#department option[value='"+vdepart+"']").attr('selected', 'selected');
+
+
+
+      return false;
+
+  });
 
 
 // js for vendor payment
@@ -223,7 +285,7 @@ function register_login(){
             url: "checkout.php?order_id="+order_no+"&product_id="+product_id+"&user_id="+user_id,
             success: function(response) {
                  //$(this).html(response);
-                 alert(response);
+                 alert(response);f
             },
             error: function(xhr) {
                   $(this).html(xhr);

@@ -1,5 +1,10 @@
 <?php
 //include_once '../connection.php';
+if($_COOKIE['admin_type'] == "admin"){
+  $admin_type = 1;
+}else{
+  $admin_type = 0;
+}
 ?>
 <!-- Top menu on small screens -->
 <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
@@ -53,9 +58,9 @@ if(@!isset($_COOKIE[admin_username])) {
 <?php
 } else {
 
-   echo  @$_COOKIE[admin_username];
+   
    ?>
-
+<i class="fas fa-user-edit" onclick="document.getElementById('admin_edit_modal').style.display='block'" title="Edit-User"><?=@$_COOKIE[admin_username];?></i>
    <i class="fa fa-power-off " onclick="location.href ='logout.php'" title="Logout"></i>
 <?php
 }

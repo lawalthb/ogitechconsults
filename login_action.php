@@ -20,7 +20,7 @@ if(isset($_POST['email'])){
     $password = MD5($password);
 
 
-    $sql = "SELECT *  FROM `users_tb` WHERE `email` LIKE '$email' AND `password` LIKE '$password' and email_comfirm =1 " ;
+    $sql = "SELECT *  FROM `users_tb` WHERE `email` LIKE '$email' AND `password` LIKE '$password' and email_comfirm =1 and `status` =1  and deleted=0" ;
     $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {

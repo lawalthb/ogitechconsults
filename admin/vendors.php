@@ -15,7 +15,10 @@
   <!-- Product grid -->
   <h2>Vendors</h2>
   <div class="w3-container">
-   <p><button class="w3-button w3-black w3-round w3-right" onclick="document.getElementById('add_vendors_modal').style.display='block'" title="Login">Add New</button></p><br><br>
+  <?php if($admin_type ==1){ ?>
+   <p><button class="w3-button w3-black w3-round w3-right" onclick="document.getElementById('add_vendors_modal').style.display='block'" title="Login">Add New</button></p>
+   <?php } ?>
+   <br><br>
 
    <table id="employee_data" class="table table-striped table-bordered">
     <thead>
@@ -78,10 +81,13 @@ $qty_balance = $row_qin['sum_in'] - $row_qout['sum_out'];
         
        
   
-        <td><a href="#"  class="vendor_edit" department="<?=$row['department'];?>" name="<?=$row['name'];?>" email="<?=$row['email'];?>" title="<?=$row['title'];?>" edit_id="<?=$row['vendor_id'];?>" ><i class="material-icons">edit</i></a> |
+        <td>
+        <?php if($admin_type ==1){ ?>  
+        <a href="#"  class="vendor_edit" department="<?=$row['department'];?>" name="<?=$row['name'];?>" email="<?=$row['email'];?>" title="<?=$row['title'];?>" edit_id="<?=$row['vendor_id'];?>" ><i class="material-icons">edit</i></a> |
         <a href="#" class="vendor_delete" department="<?=$row['department'];?>" name="<?=$row['name'];?>"  delete_id="<?=$row['vendor_id'];?>" ><i class="material-icons">delete_forever</i></a> |
         <a href="#" class="add_pay_modal" department="<?=$row['department'];?>" name="<?=$row['name'];?>"  vendor_id="<?=$row['vendor_id'];?>" ><i class="material-icons">price_change</i></a>
-        </td>
+        <?php } ?>  
+      </td>
 
         
       </tr>

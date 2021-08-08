@@ -7,15 +7,17 @@
   <a href="index.php" class="w3-bar-item w3-button">Dashboard</a>
     <a href="customer_orders.php" class="w3-bar-item w3-button">Customer's Order</a>
   <a href="sales.php" class="w3-bar-item w3-button">Sales</a>
-    <a href="#" class="w3-bar-item w3-button">Make New Order</a>
+    <!-- <a href="#" class="w3-bar-item w3-button">Make New Order</a> -->
 
     <a href="products.php" class="w3-bar-item w3-button">Products</a>
     <a href="stock.php" class="w3-bar-item w3-button">Stock</a>
     <a href="vendors.php" class="w3-bar-item w3-button">Vendors</a>
     <a href="users.php" class="w3-bar-item w3-button">Users</a>
+    <?php if($admin_type ==1){ ?>  
+    <a href="sub_admins.php" class="w3-bar-item w3-button">Sub Admin</a>
+    <?php } ?>
   </div>
-  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('viewcart').style.display='block'">View Cart</a>
+  
   <?php
       if(@!isset($_COOKIE[admin_username])) {
     ?>

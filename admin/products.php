@@ -15,8 +15,12 @@
   <!-- Product grid -->
   <h2>Products</h2>
   <div class="w3-container">
+  <?php if($admin_type ==1){
+?>
    <p><button class="w3-button w3-black w3-round w3-right" onclick="document.getElementById('add_modal').style.display='block'" title="Login">Add New</button></p><br><br>
-
+<?php
+}
+?>
    <table id="employee_data" class="table table-striped table-bordered">
     <thead>
       <tr class="w3-light-grey">
@@ -70,8 +74,12 @@ if (mysqli_num_rows($result) > 0) {
        <td>no sold</td>
         <td><?php $status = $row['status'];
         if($status == 1){ echo "Active" ; }else{ echo "Deactive";}  ?></td>
-        <td><a href="#"  class="product_edit" description="<?=$row['description'];?>"  vendor_name="<?=$vendor_name;?>"  department_name="<?=$department_name;?>" vendor_id="<?=$row['vendor_id'];?>"  department_id="<?=$row['department_id'];?>" name="<?=$row['product_name'];?>" sell_rate="<?=$row['sell_rate'];?>" purchase_rate="<?=$row['purchase_rate'];?>" edit_id="<?=$row['product_id'];?>"  level="<?=$row['level'];?>"  vendor_email="<?=$row['vendor_email'];?>"> <i class="material-icons">edit</i></a> |
-        <a href="#" class="product_delete" department="<?=$row['department'];?>" name="<?=$row['name'];?>"  delete_id="<?=$row['product_id'];?>" ><i class="material-icons">delete_forever</i></a></td>
+        <td><?php if($admin_type ==1){
+?>
+<a href="#"  class="product_edit" description="<?=$row['description'];?>"  vendor_name="<?=$vendor_name;?>"  department_name="<?=$department_name;?>" vendor_id="<?=$row['vendor_id'];?>"  department_id="<?=$row['department_id'];?>" name="<?=$row['product_name'];?>" sell_rate="<?=$row['sell_rate'];?>" purchase_rate="<?=$row['purchase_rate'];?>" edit_id="<?=$row['product_id'];?>"  level="<?=$row['level'];?>"  vendor_email="<?=$row['vendor_email'];?>"> <i class="material-icons">edit</i></a> |
+        <a href="#" class="product_delete" department="<?=$row['department'];?>" name="<?=$row['name'];?>"  delete_id="<?=$row['product_id'];?>" ><i class="material-icons">delete_forever</i></a>
+        <?php } ?>
+      </td>
       </tr>
       
     <?php

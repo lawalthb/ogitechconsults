@@ -136,8 +136,14 @@ else{
 
             <td><?php $sales_status = $row['sales_status'];
             if($sales_status == 1){ echo "Waiting" ; }elseif($sales_status == 2){ echo "Purchased";} elseif($sales_status == 3){ echo "Rejected";}  ?></td>
-            <td><button class="w3-button w3-black w3-round refund" order_no="<?=$row['order_no'];?>" title="Refund <?=$row['order_no'];?>">Refund</button>
-               </td>
+            <td>
+              <?php if($admin_type ==1){
+?>
+ <button class="w3-button w3-black w3-round refund" order_no="<?=$row['order_no'];?>" title="Refund <?=$row['order_no'];?>">Refund</button>
+            <?php
+              }
+              ?>
+              </td>
 
              <td>
 

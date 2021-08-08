@@ -23,8 +23,13 @@
               <script src=" https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
       <h2>Stock</h2>
       <div class="w3-container " style="overflow: scroll;">
-
-  <p><button class="w3-button w3-black w3-round w3-right" onclick="document.getElementById('add_modal').style.display='block'" title="Login">Add Stock</button></p><br><br>
+      <?php if($admin_type ==1){
+?>
+  <p>
+    <button class="w3-button w3-black w3-round w3-right" onclick="document.getElementById('add_modal').style.display='block'" title="Login">Add Stock</button></p>
+    <?php
+}
+?><br><br>
 
        <table id="employee_data" class="table  table-bordered w3-table w3-striped">
         <thead>
