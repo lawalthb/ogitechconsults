@@ -112,7 +112,8 @@ if (mysqli_query($conn, $sql_pay)){
    VALUES (NULL, NOW(), '$item', '$vendor_id', '$qty', '0', '$qty', '$payment_id', CURRENT_TIMESTAMP, '1')";
 
 if (mysqli_query($conn, $sql)){
-
+  $sqll = "UPDATE `products_tb` SET `qty` = `qty`+($qty) WHERE `products_tb`.`product_id` = $item";
+  mysqli_query($conn, $sqll);
 ?>
 <script>
 window.location.href = "stock.php?msg=suc";

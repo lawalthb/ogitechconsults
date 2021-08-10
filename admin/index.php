@@ -22,166 +22,160 @@
              <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
             <script src=" https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
       <!-- Product grid -->
-      <h2>Customer's Orders</h2>
-      <div class="w3-container " style="overflow: scroll;">
-       <p><a href="customer_orders.php?sales_status=2"><button class="w3-button w3-black w3-round "title="Purchased">Purchased</button></a>&nbsp;
-         <a href="customer_orders.php?sales_status=1"><button class="w3-button w3-black w3-round "title="Waiting">Waiting</button></a>&nbsp;
-       <a href="customer_orders.php?sales_status=3"><button class="w3-button w3-black w3-round "title="Rejected">Rejected</button></a>&nbsp;
-      <a href="customer_orders.php?all=0"><button class="w3-button w3-black w3-round "title="All">All</button></a>
-    </p><br><br>
-    Date Range:
-                               <form action="" name="form" method="post" >
-                               <div class="row">
+      <div class="w3-container">
+        
+<h2>Dashboard</h2>
+<p class="w3-large"><a href="customer_orders.php">Click to view order</a></p>
+</div>
 
-   								<div class="offset-md-1 col-md-8">
-                                   <div class="input-daterange input-group" id="date-range">
-                                       <input type="date" class="form-control" name="start" value="<?php if((isset($_POST['start']))) { echo $_POST['start']; }?>" >
-                                       <span class="input-group-addon bg-primary b-0 text-white">to</span>
-                                       <input type="date" class="form-control" name="end" value="<?php if((isset($_POST['end']))) { echo $_POST['end']; }?>" >
-                                      <button type="submit" class="btn btn-primary">GET</button>
-                                    </div>
-                                  </div>
-
-                               </div>
-                             </form><br  />
-By defualt is listing current month records
-
-       <table id="employee_data" class="table  table-bordered w3-table w3-striped">
-        <thead>
-          <tr class="w3-light-grey">
-          <th>SN</th>
-          <th>Check Out</th>
-            <th>Order No.</th>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Matric No</th>
-            <th>Product Name</th>
-            <th>Level</th>
-            <th>Quantity</th>
-            <th>Rate ₦</th>
-            <th>Total Amount ₦</th>
-            <th>Date</th>
-            <th>Order Status</th>
-            <th>Slaes Status</th>
-
-            <th>Action</th>
-          </tr>
-        </thead>
-        <?php
-        $firstname = @$_COOKIE[firstname];
-        if($firstname == "") {
-                echo "<script>
-        window.location.replace('index.php');
-                </script>";
-                }
-if(isset($_POST['start']) and isset($_POST['end'])){
-$start = $_POST['start'];
-$end =  $_POST['end'];
-}
-else{
-  $start = date("Y-m-01");
-  $end =  date("Y-m-31");
-
-
-}
-
-        if(isset($_GET['sales_status'])){
-
-          if($_GET['sales_status'] ==1 ){
-              $sql = "SELECT * FROM `order_tb` where `sales_status` = 1 and `order_status` != '2' and `date` BETWEEN '$start' AND '$end' ORDER BY `order_tb`.`order_id` DESC ";
-          }elseif($_GET['sales_status'] ==2 ){
-              $sql = "SELECT * FROM `order_tb` where `sales_status` = 2  and `order_status` != '2' and `date` BETWEEN '$start' AND '$end' ORDER BY `order_tb`.`order_id` DESC ";
-
-        }elseif($_GET['sales_status'] ==3 ){
-            $sql = "SELECT * FROM `order_tb` where `sales_status` = 3  and `order_status` != '2' and `date` BETWEEN '$start' AND '$end' ORDER BY `order_tb`.`order_id` DESC ";
-        }
-      }elseif(!isset($_GET['sales_status'])){
-          $sql = "SELECT * FROM `order_tb` where  `order_status` = 1  and   `sales_status` = 1 and `date` BETWEEN '$start' AND '$end'  ORDER BY `order_tb`.`order_id` DESC ";
-        }
-
-    $result = mysqli_query($conn, $sql);
-    $sn= 1;
-    if (mysqli_num_rows($result) > 0) {
-      // output data of each row
-      $tot =0;
-      while($row = mysqli_fetch_assoc($result)) {
-        ?>
-
-    <tr class="w3-light">
-    <td><?=$sn?></td>
-    <td><button class="w3-button w3-black w3-round checkout" product_id="<?=$row['product_id'];?>"  user_id="<?=$row['user_id'];?>"  order_no="<?=$row['order_no'];?>" title="Checkout <?=$row['order_no'];?>">Check Out</button>
-       </td>
-  <td><?=$row['order_no'];?></td>
-
-            <td><?php $user = $row['user_id'];
-            $sql3 = "SELECT * FROM `users_tb` WHERE `user_id` =  $user  ";
+<div class="w3-row " >
+<div class="w3-quarter w3-container w3-border w3-margin" >
+  <h2>Total Sales</h2>  
+  <p>N<?php 
+            $sql3 = "SELECT sum(total_amount) as sum_sales FROM `sales_tb`";
             $result3 = mysqli_query($conn, $sql3);
-            mysqli_num_rows($result3);
+            
             $row3 = mysqli_fetch_assoc($result3);
-            echo $row3['email'];
+            echo number_format($row3['sum_sales'],2);
+      ?></p>
+  <p><a href="sales.php">View</a></p>
+</div>
+<div class="w3-quarter w3-container w3-border w3-margin">
+  <h2>Today's Sales</h2>
+  <p>N <?php 
+    $todays_date = date('Y-m-d');
+            $sql4 = "SELECT sum(total_amount) as sum_sales FROM `sales_tb` WHERE `date` BETWEEN '$todays_date' AND '$todays_date'";
+            $result4 = mysqli_query($conn, $sql4);
+            
+            $row4 = mysqli_fetch_assoc($result4);
+            echo number_format($row4['sum_sales'],2);
+      ?></p>
+  <p><a href="sales.php">View</a></p>
+</div>
+<div class="w3-quarter w3-container w3-border w3-margin">
+  <h2>Total Purchase</h2>
+  <p>N <?php 
+            $sql3 = "SELECT sum(amount_in) as sum_payment FROM `payment_tb`";
+            $result3 = mysqli_query($conn, $sql3);
+            $row3 = mysqli_fetch_assoc($result3);
+            echo number_format($row3['sum_payment'],2);
+      ?></p>
+  <p><a href="stock.php">View</a></p>
+</div>
+<div class="w3-quarter w3-container w3-border w3-margin">
+  <h2>Today Purchase</h2>
+  <p>N <?php 
+    $todays_date = date('Y-m-d');
+            $sql4 = "SELECT sum(amount_in) as sum_payment FROM `payment_tb` WHERE `date` BETWEEN '$todays_date' AND '$todays_date'";
+            $result4 = mysqli_query($conn, $sql4);
+            
+            $row4 = mysqli_fetch_assoc($result4);
+            echo number_format($row4['sum_payment'],2);
+      ?></p>
+  <p><a href="stock.php">View</a></p>
+</div>
 
+<div class="w3-quarter w3-container w3-border w3-margin">
+  <h2>Total Users</h2>  
+  <p><?php  $sql5 = "SELECT *   FROM `users_tb` ";
+            $result5 = mysqli_query($conn, $sql5);
+            $t_sum= mysqli_num_rows($result5);
+            $row5 = mysqli_fetch_assoc($result5);
+            echo $t_sum;
+           
+            ?></p>
+  <p><a href="users.php">View</a></p>
+</div>
+<div class="w3-quarter w3-container w3-border w3-margin">
+  <h2>Total Item</h2>
+  <p><?php  $sql6 = "SELECT *   FROM `products_tb` ";
+            $result6 = mysqli_query($conn, $sql6);
+            $t_sum= mysqli_num_rows($result6);
+            //$row6 = mysqli_fetch_assoc($result6);
+            echo $t_sum;
+           
+            ?></p>
+  <p><a href="products.php">View</a></p>
+</div>
+<div class="w3-quarter w3-container w3-border w3-margin">
+  <h2>Total Vendors</h2>
+  <p><?php  $sql7 = "SELECT *   FROM `vendors_tb` ";
+            $result7 = mysqli_query($conn, $sql7);
+            $t_sum= mysqli_num_rows($result7);
+            //$row6 = mysqli_fetch_assoc($result6);
+            echo $t_sum;
+           
+            ?></p>
+  <p><a href="vendors.php">View</a></p>
+</div>
+<div class="w3-quarter w3-container w3-border w3-margin">
+  <h2>Total Sales Rep.</h2>
+  <p><?php  $sql8 = "SELECT *   FROM `admins_tb` where `admin_type` = 'sales_rep' ";
+            $result8 = mysqli_query($conn, $sql8);
+            $t_sum= mysqli_num_rows($result8);
+            //$row6 = mysqli_fetch_assoc($result6);
+            echo $t_sum;
+           
+            ?></p>
+  <p><a href="sub_admins.php">View</a></p>
+</div>
 
-            ?></td>
-            <td><?=$row3['firstname']." ". $row3['lastname'];?></td>
-              <td><?=$row3['matric_no'];?></td>
-            <td><?php $product_id= $row['product_id'];
-            $sql2 = "SELECT * FROM `products_tb` WHERE `product_id` =  $product_id  ";
-            $result2 = mysqli_query($conn, $sql2);
-            mysqli_num_rows($result2);
-            $row2 = mysqli_fetch_assoc($result2);
-            echo $row2['product_name'];
+</div>
+<div class="w3-container">
+<h2>Low Items in stock</h2>
+  <p>When item is zero, the item can not be sold</p>
+  
+  <table class="w3-table w3-striped">
+    <tr>
+      <th>Item Name</th>
+      <th>Vendor Name</th>
+      <th>Department</th>
+      <th>Level</th>
+      <th>Quantity</th>
+    </tr>
+    <?php
+$sql = "SELECT * FROM `products_tb` where `qty` <=5 limit 10 ";
+$result = mysqli_query($conn, $sql);
+$sn= 1;
+if (mysqli_num_rows($result) > 0) {
+  // output data of each row
 
+  while($row = mysqli_fetch_assoc($result)) {
+    ?>
+    
+    <tr>
+      <td><?=$row['product_name'];?></td>
+      <td><?php $vendor= $row['vendor_id'];
+        $sql2 = "SELECT * FROM `vendors_tb` WHERE `vendor_id` =  $vendor ";
+        $result2 = mysqli_query($conn, $sql2);
+        mysqli_num_rows($result2);
+        $row2 = mysqli_fetch_assoc($result2);
+        $vendor_name =  $row2['name']; 
+        echo $row2['title']." ".$row2['name'];
 
-            ?></td>
-            <td><?=$row2['level'];?></td>
-            <td><?=$row['qty'];?></td>
-            <td><?=$row['rate'];?></td>
-            <td><?=$row['total_amount'];?></td>
-            <td><?=$row['date'];?></td>
-            <td><?php $order_status = $row['order_status'];
-            if($order_status == 1){ echo "New Order" ; }else{ echo "Customer Removed";}  ?></td>
-            <td><?php $sales_status = $row['sales_status'];
-            if($sales_status == 1){ echo "Waiting" ; }elseif($sales_status == 2){ echo "Purchased";} elseif($sales_status == 3){ echo "Rejected";}  ?></td>
+        ?></td>
+      <td><?php $department= $row['department_id'];
+        $sql2 = "SELECT * FROM `departments_tb` WHERE `department_id` =  $department ";
+        $result2 = mysqli_query($conn, $sql2);
+        mysqli_num_rows($result2);
+        $row2 = mysqli_fetch_assoc($result2);
+        $department_name = $row2['name'];
+        echo $row2['name'];
 
-             <td>
-            <a href="#" class="order_remove" title="Remove"  order_id="<?=$row['order_id'];?>" order_no="<?=$row['order_no'];?>" ><i class="material-icons">delete_forever</i></a></td>
-          </tr>
+        ?></td>
+      <td><?=$row['level'];?></td>
+      <td><?=$row['qty'];?></td>
+    </tr>
+    <?php
+   // $sn++;
+  }
+} else {
+  echo "No Record";
+}
 
-        <?php
-        $sn++;
-        $tot =$tot+$row['total_amount'];
-      }
-    } else {
-      echo "No Record";
-    }
-
-        ?>
-
-        <tfooter>
-          <tr class="w3-light-grey">
-          <th>SN</th>
-<th>Check Out</th>
-            <th>Order No.</th>
-            <th>Email</th>
-                <th>Name</th>
-                <th>Matric No</th>
-            <th>Product Name</th>
-            <th>Level</th>
-            <th>Quantity</th>
-            <th>Rate ₦</th>
-            <th>₦ <?=@number_format($tot,2)?></th>
-            <th>Date</th>
-            <th>Order Status</th>
-            <th>Slaes Status</th>
-
-            <th>Action</th>
-          </tr>
-
-        </tfooter>
-
-
-      </table>
-    </div>
+    ?>
+  </table>
+</div>
      <br> <br>
      <script>
 

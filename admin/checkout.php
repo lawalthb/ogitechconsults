@@ -51,8 +51,10 @@ if (isset($_GET["order_id"])) {
                `item_out`, `item_balance`, `payment_id`, `reg_date`, `status`)
                VALUES (NULL, NOW(), '$user_id', '$mat_no', '$product_id', '$vendor_id', '2', '0', '$qty', '4', '0', CURRENT_TIMESTAMP, '1')";
                
+
                if(mysqli_query($conn, $sql4)){
-                
+                 $sqll = "UPDATE `products_tb` SET `qty` = `qty`-($qty) WHERE `products_tb`.`product_id` = $product_id";
+                  mysqli_query($conn, $sqll);
                   $headers = "From: consults@ogitechconsults.com\r\n";
                   $headers .= "Reply-To: consults@ogitechconsults.com\r\n";
                   
